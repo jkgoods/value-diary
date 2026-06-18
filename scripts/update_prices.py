@@ -17,15 +17,17 @@ PORTFOLIO_HTML = ROOT / "portfolio.html"
 
 
 def get_latest_price(ticker):
+    """Returns (price, date_str "YYYY.MM.DD") or (None, None)."""
     to_date = date.today().strftime("%Y%m%d")
     from_date = (date.today() - timedelta(days=7)).strftime("%Y%m%d")
     try:
         df = krx.get_market_ohlcv_by_date(from_date, to_date, ticker)
         if not df.empty:
-            return int(df["종가"].iloc[-1])
+            price_date = df.index[-1].strftime("%Y.%m.%d")
+            return int(df["종가"].iloc[-1]), price_date
     except Exception as e:
         print(f"  WARN: {ticker} 조회 실패 — {e}")
-    return None
+    return None, None
 
 
 def fmt_return(pct):
@@ -50,12 +52,15 @@ def main():
 
     results = []
     total_eval = 0
+    price_date = None
 
     for s in stocks:
-        price = get_latest_price(s["ticker"])
+        price, pd = get_latest_price(s["ticker"])
         if price is None:
             print(f"  {s['name']} 현재가 조회 실패 — 매수가 유지")
             price = s["buy_price"]
+        else:
+            price_date = pd
 
         eval_amount = price * s["shares"]
         total_eval += eval_amount
@@ -68,14 +73,14 @@ def main():
 
     total_pct = (total_eval - total_invested) / total_invested * 100
     total_ret_str, total_ret_color = fmt_return(total_pct)
-    print(f"\n총 평가: {total_eval:,}원  {total_ret_str}")
+    print(f"\n총 평가: {total_eval:,}원  {total_ret_str}  ({price_date} 종가 기준)")
 
-    _update_index(results, total_invested, total_eval, total_ret_str, round_label)
-    _update_portfolio(results, total_invested, total_eval, total_ret_str, total_ret_color, round_label)
+    _update_index(results, total_invested, total_eval, total_ret_str, round_label, price_date)
+    _update_portfolio(results, total_invested, total_eval, total_ret_str, total_ret_color, round_label, price_date)
     print("완료.")
 
 
-def _update_index(results, total_invested, total_eval, total_ret_str, round_label):
+def _update_index(results, total_invested, total_eval, total_ret_str, round_label, price_date):
     html = INDEX_HTML.read_text(encoding="utf-8")
 
     items = ""
@@ -91,9 +96,10 @@ def _update_index(results, total_invested, total_eval, total_ret_str, round_labe
             f'      </div>\n'
         )
 
+    date_note = f' &nbsp;<span style="font-size:11px;color:#ccc">{price_date} 종가 기준</span>' if price_date else ""
     summary = (
         f'총 투자금 {total_invested:,}원 · 평가 {total_eval:,}원 · '
-        f'{total_ret_str} · 5종목 · {round_label}'
+        f'{total_ret_str} · 5종목 · {round_label}{date_note}'
     )
 
     new_block = (
@@ -114,16 +120,17 @@ def _update_index(results, total_invested, total_eval, total_ret_str, round_labe
     INDEX_HTML.write_text(html, encoding="utf-8")
 
 
-def _update_portfolio(results, total_invested, total_eval, total_ret_str, total_ret_color, round_label):
+def _update_portfolio(results, total_invested, total_eval, total_ret_str, total_ret_color, round_label, price_date):
     html = PORTFOLIO_HTML.read_text(encoding="utf-8")
 
+    date_note = f' &nbsp;·&nbsp; <span style="font-size:11px;color:#ccc">{price_date} 종가 기준</span>' if price_date else ""
     new_summary = (
         "<!-- SUMMARY_START -->\n"
         "  <div class=\"summary-row\">\n"
         f'    총 투자 <span class="highlight">{total_invested:,}원</span> &nbsp;·&nbsp; '
         f'평가금액 <span class="highlight">{total_eval:,}원</span> &nbsp;·&nbsp; '
         f'수익률 <span style="color:{total_ret_color};font-weight:600">{total_ret_str}</span> &nbsp;·&nbsp; '
-        f'보유 <span class="highlight">{len(results)}종목</span>\n'
+        f'보유 <span class="highlight">{len(results)}종목</span>{date_note}\n'
         "  </div>\n"
         "  <!-- SUMMARY_END -->"
     )
