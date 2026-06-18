@@ -18,14 +18,11 @@
   .page-header { padding: 48px 0 32px; border-bottom: 1px solid #e8e8e8; }
   .page-header h1 { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
   .page-header p { font-size: 14px; color: #888; }
-  .summary-row { display: flex; gap: 32px; padding: 24px 0; border-bottom: 1px solid #e8e8e8; }
-  .summary-item { display: flex; flex-direction: column; gap: 4px; }
-  .summary-label { font-size: 12px; color: #aaa; }
-  .summary-value { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
-  .tag { font-size: 11px; color: #888; background: #f5f5f5; padding: 2px 7px; border-radius: 4px; margin-left: 8px; font-weight: 400; }
-  .pos { color: #16a34a; }
-  .neg { color: #dc2626; }
-  .neutral { color: #1a1a1a; }
+  .summary-row { padding: 20px 0; border-bottom: 1px solid #e8e8e8; font-size: 13px; color: #aaa; }
+  .summary-row .highlight { color: #1a1a1a; font-weight: 600; }
+  .pos { color: #16a34a; font-weight: 600; }
+  .neg { color: #dc2626; font-weight: 600; }
+  .neutral { color: #1a1a1a; font-weight: 600; }
   .section { padding: 32px 0; }
   .section-label { font-size: 13px; font-weight: 600; color: #888; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 20px; }
   .stock-table { width: 100%; border-collapse: collapse; }
@@ -63,25 +60,10 @@
 <div class="main">
   <div class="page-header">
     <h1>포트폴리오</h1>
-    <p>마법공식으로 선정한 종목 전체 기록. 분기 1회 5종목, 종목당 10만원.</p>
+    <p>마법공식으로 선정한 종목 전체 기록. 3개월마다 5종목, 종목당 10만원.</p>
   </div>
   <div class="summary-row">
-    <div class="summary-item">
-      <span class="summary-label">총 투자금</span>
-      <span class="summary-value neutral">543,960원</span>
-    </div>
-    <div class="summary-item">
-      <span class="summary-label">평가금액</span>
-      <span class="summary-value neutral">543,960원</span>
-    </div>
-    <div class="summary-item">
-      <span class="summary-label">총 수익률</span>
-      <span class="summary-value neutral">0.00%</span>
-    </div>
-    <div class="summary-item">
-      <span class="summary-label">보유 종목</span>
-      <span class="summary-value neutral">5종목</span>
-    </div>
+    총 투자 <span class="highlight">543,960원</span> &nbsp;·&nbsp; 평가금액 <span class="highlight">543,960원</span> &nbsp;·&nbsp; 수익률 <span class="neutral">0.00%</span> &nbsp;·&nbsp; 보유 <span class="highlight">5종목</span>
   </div>
   <div class="section">
     <div class="section-label">보유 종목 — 2026.06 · 1회차</div>
