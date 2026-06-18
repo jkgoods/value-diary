@@ -45,9 +45,9 @@ def fmt_return(pct, valid=True):
     if not valid:
         return "—", "#ccc"
     if pct > 0:
-        return f"+{pct:.1f}%", "#16a34a"
+        return f"+{pct:.1f}%", "#d00000"
     elif pct < 0:
-        return f"{pct:.1f}%", "#dc2626"
+        return f"{pct:.1f}%", "#1060c0"
     return "0.0%", "#aaa"
 
 
@@ -55,7 +55,7 @@ def bar_style(pct, valid=True):
     if not valid:
         return "width:2%;background:#ddd"
     width = max(2, min(100, int(abs(pct) * 5)))
-    color = "#16a34a" if pct > 0 else "#dc2626" if pct < 0 else "#ddd"
+    color = "#d00000" if pct > 0 else "#1060c0" if pct < 0 else "#ddd"
     return f"width:{width}%;background:{color}"
 
 
