@@ -22,6 +22,7 @@
   .summary-item { display: flex; flex-direction: column; gap: 4px; }
   .summary-label { font-size: 12px; color: #aaa; }
   .summary-value { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
+  .tag { font-size: 11px; color: #888; background: #f5f5f5; padding: 2px 7px; border-radius: 4px; margin-left: 8px; font-weight: 400; }
   .pos { color: #16a34a; }
   .neg { color: #dc2626; }
   .neutral { color: #1a1a1a; }
@@ -67,26 +68,79 @@
   <div class="summary-row">
     <div class="summary-item">
       <span class="summary-label">총 투자금</span>
-      <span class="summary-value neutral">—</span>
+      <span class="summary-value neutral">543,960원</span>
     </div>
     <div class="summary-item">
       <span class="summary-label">평가금액</span>
-      <span class="summary-value neutral">—</span>
+      <span class="summary-value neutral">543,960원</span>
     </div>
     <div class="summary-item">
       <span class="summary-label">총 수익률</span>
-      <span class="summary-value neutral">—</span>
+      <span class="summary-value neutral">0.00%</span>
     </div>
     <div class="summary-item">
       <span class="summary-label">보유 종목</span>
-      <span class="summary-value neutral">0종목</span>
+      <span class="summary-value neutral">5종목</span>
     </div>
   </div>
   <div class="section">
-    <div class="section-label">보유 종목</div>
-    <div class="empty-state">
-      <p>첫 분기 스크리닝 후 업데이트됩니다.<br>2026년 7월 첫 매수 예정.</p>
-    </div>
+    <div class="section-label">보유 종목 — 2026년 1분기</div>
+    <table class="stock-table">
+      <thead>
+        <tr>
+          <th>종목</th>
+          <th>매수일</th>
+          <th>매수가</th>
+          <th>주수</th>
+          <th>매수금액</th>
+          <th>수익률</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="sname">동성케미컬</div><div class="scode">102260</div></td>
+          <td><span class="buy-date">2026.06.18</span></td>
+          <td>3,855원</td>
+          <td>28주</td>
+          <td>107,940원</td>
+          <td style="color:#aaa">0.0%</td>
+        </tr>
+        <tr>
+          <td><div class="sname">세보엠이씨</div><div class="scode">011560</div></td>
+          <td><span class="buy-date">2026.06.18</span></td>
+          <td>22,200원</td>
+          <td>5주</td>
+          <td>111,000원</td>
+          <td style="color:#aaa">0.0%</td>
+        </tr>
+        <tr>
+          <td><div class="sname">HRS</div><div class="scode">036640</div></td>
+          <td><span class="buy-date">2026.06.18</span></td>
+          <td>4,830원</td>
+          <td>22주</td>
+          <td>106,260원</td>
+          <td style="color:#aaa">0.0%</td>
+        </tr>
+        <tr>
+          <td><div class="sname">트루엔</div><div class="scode">417790</div></td>
+          <td><span class="buy-date">2026.06.18</span></td>
+          <td>6,420원</td>
+          <td>17주</td>
+          <td>109,140원</td>
+          <td style="color:#aaa">0.0%</td>
+        </tr>
+        <tr>
+          <td><div class="sname">현대이지웰</div><div class="scode">090850</div></td>
+          <td><span class="buy-date">2026.06.18</span></td>
+          <td>5,220원</td>
+          <td>21주</td>
+          <td>109,620원</td>
+          <td style="color:#aaa">0.0%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="section">
     <div class="rule-box">
       <h3>매수 원칙</h3>
       <ul>
