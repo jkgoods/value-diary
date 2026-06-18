@@ -41,7 +41,9 @@ def get_latest_price(ticker):
     return None, None
 
 
-def fmt_return(pct):
+def fmt_return(pct, valid=True):
+    if not valid:
+        return "—", "#ccc"
     if pct > 0:
         return f"+{pct:.1f}%", "#16a34a"
     elif pct < 0:
@@ -49,7 +51,9 @@ def fmt_return(pct):
     return "0.0%", "#aaa"
 
 
-def bar_style(pct):
+def bar_style(pct, valid=True):
+    if not valid:
+        return "width:2%;background:#ddd"
     width = max(2, min(100, int(abs(pct) * 5)))
     color = "#16a34a" if pct > 0 else "#dc2626" if pct < 0 else "#ddd"
     return f"width:{width}%;background:{color}"
@@ -76,14 +80,17 @@ def main():
         eval_amount = price * s["shares"]
         total_eval += eval_amount
         pct = (price - s["buy_price"]) / s["buy_price"] * 100
-        ret_str, ret_color = fmt_return(pct)
+        # 종가 기준일이 매수일보다 이전이면 수익률 미표시
+        valid = (pd is not None) and (pd.replace(".", "-") >= s["buy_date"].replace(".", "-"))
+        ret_str, ret_color = fmt_return(pct, valid)
 
         results.append({**s, "current_price": price, "eval_amount": eval_amount,
-                        "pct": pct, "ret_str": ret_str, "ret_color": ret_color})
+                        "pct": pct, "ret_str": ret_str, "ret_color": ret_color, "valid": valid})
         print(f"  {s['name']} ({s['ticker']}): {price:,}원  {ret_str}")
 
     total_pct = (total_eval - total_invested) / total_invested * 100
-    total_ret_str, total_ret_color = fmt_return(total_pct)
+    all_valid = all(r["valid"] for r in results)
+    total_ret_str, total_ret_color = fmt_return(total_pct, all_valid)
     print(f"\n총 평가: {total_eval:,}원  {total_ret_str}  ({price_date} 종가 기준)")
 
     _update_index(results, total_invested, total_eval, total_ret_str, round_label, price_date)
@@ -102,7 +109,7 @@ def _update_index(results, total_invested, total_eval, total_ret_str, round_labe
             f'<div class="sname">{r["name"]}</div>'
             f'<div class="scode">{r["ticker"]} · {r["buy_date"]} 매수</div></div>\n'
             f'        <div class="stock-bar-wrap">'
-            f'<div class="stock-bar" style="{bar_style(r["pct"])}"></div></div>\n'
+            f'<div class="stock-bar" style="{bar_style(r["pct"], r["valid"])}"></div></div>\n'
             f'        <div class="stock-right" style="color:{r["ret_color"]}">{r["ret_str"]}</div>\n'
             f'      </div>\n'
         )
