@@ -53,11 +53,12 @@
 - newtechtree.com 도메인으로 애드센스 심사 완료 (value.newtechtree.com 포함)
 - 광고 스크립트 삽입 및 광고 슬롯 위치 지정 필요
 - 추천 광고 위치: 히어로 아래, 일지 목록 사이, 푸터 위
+- ⚠️ 개발 중 불필요한 트래픽 방지를 위해 사이트 완성 후 마지막에 삽입
 
 ## 현재 작업 상태
 - Cloudflare Pages 배포 완료
 - value.newtechtree.com 도메인 연결 완료
 - 전체 페이지 뼈대 완성 (index, portfolio, diary, about, diary/001)
-- 애드센스 심사 완료 (newtechtree.com) — 스크립트 삽입 대기
+- 애드센스 심사 완료 (newtechtree.com) — 사이트 완성 후 마지막에 삽입 (개발 중 트래픽 방지)
 - 실제 매수 데이터 미입력 (첫 매수 후 업데이트 예정)
 - pykrx 현재가 자동 갱신 미구현
