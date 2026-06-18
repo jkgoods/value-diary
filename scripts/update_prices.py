@@ -1,8 +1,19 @@
 import json
 import re
 import sys
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
+
+KST = timezone(timedelta(hours=9))
+
+
+def price_to_date():
+    """장 마감(15:30 KST) 이후면 오늘, 이전이면 어제까지 조회."""
+    now = datetime.now(KST)
+    close = now.replace(hour=15, minute=30, second=0, microsecond=0)
+    if now >= close:
+        return now.date().strftime("%Y%m%d")
+    return (now.date() - timedelta(days=1)).strftime("%Y%m%d")
 
 try:
     from pykrx import stock as krx
@@ -18,8 +29,8 @@ PORTFOLIO_HTML = ROOT / "portfolio.html"
 
 def get_latest_price(ticker):
     """Returns (price, date_str "YYYY.MM.DD") or (None, None)."""
-    to_date = date.today().strftime("%Y%m%d")
-    from_date = (date.today() - timedelta(days=7)).strftime("%Y%m%d")
+    to_date = price_to_date()
+    from_date = (date.fromisoformat(f"{to_date[:4]}-{to_date[4:6]}-{to_date[6:]}") - timedelta(days=7)).strftime("%Y%m%d")
     try:
         df = krx.get_market_ohlcv_by_date(from_date, to_date, ticker)
         if not df.empty:
