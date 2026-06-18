@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://value.newtechtree.com/sitemap.xml
