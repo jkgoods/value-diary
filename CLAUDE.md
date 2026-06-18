@@ -52,4 +52,4 @@
 ## 현재 작업 상태
 - Cloudflare Pages 배포 완료
 - value.newtechtree.com 도메인 연결 완료
-- index.html 아직 미생성 → 첫 번째 작업
+- index.html 생성 완료
