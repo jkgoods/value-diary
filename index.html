@@ -271,6 +271,51 @@
       color: #ccc;
       line-height: 1.7;
     }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 24px 0;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    .stat-card {
+      background: #fafafa;
+      border-top: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 14px 14px 12px;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      color: #bbb;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin-bottom: 7px;
+    }
+
+    .stat-value {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: -0.4px;
+    }
+
+    .stat-sub {
+      font-size: 11px;
+      color: #bbb;
+      margin-top: 5px;
+    }
+
+    @media (max-width: 480px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .stat-value {
+        font-size: 15px;
+      }
+    }
   </style>
 </head>
 
@@ -295,9 +340,19 @@
         <span>소액 실전</span>
       </div>
     </div>
+    <div class="stats-grid">
+      <!-- STATS_CARD_START -->
+  <div class="stat-card" style="--accent:#3b82f6"><div class="stat-label">매수 시작일</div><div class="stat-value">2026.06.18</div><div class="stat-sub">최근 2026.06.18</div></div>
+  <div class="stat-card" style="--accent:#8b5cf6"><div class="stat-label">보유 종목</div><div class="stat-value">5종목</div></div>
+  <div class="stat-card" style="--accent:#06b6d4"><div class="stat-label">진행 회차</div><div class="stat-value">1회차</div></div>
+  <div class="stat-card" style="--accent:#f59e0b"><div class="stat-label">총 투자금</div><div class="stat-value">543,960원</div></div>
+  <div class="stat-card" style="--accent:#10b981"><div class="stat-label">평가금액</div><div class="stat-value">542,880원</div></div>
+  <div class="stat-card" style="--accent:#1060c0"><div class="stat-label">전체 수익률</div><div class="stat-value" style="color:#1060c0">-0.2%</div></div>
+  <!-- STATS_CARD_END -->
+    </div>
     <div class="portfolio-strip">
       <div class="section-header">
-        <span class="section-label">최근 매수 종목</span>
+        <span class="section-label">보유 종목</span>
         <a href="portfolio.html" class="section-more">전체 종목 보기 →</a>
       </div>
       <!-- PORTFOLIO_STRIP_START -->
