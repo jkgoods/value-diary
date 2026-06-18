@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>포트폴리오 — 버티는 투자</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; background: #fff; color: #1a1a1a; font-size: 15px; line-height: 1.7; }
+  nav { border-bottom: 1px solid #e0e0e0; padding: 18px 0; }
+  .nav-inner { max-width: 680px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-size: 17px; font-weight: 700; color: #1a1a1a; letter-spacing: -0.3px; text-decoration: none; }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a { text-decoration: none; color: #888; font-size: 13px; }
+  .nav-links a:hover { color: #1a1a1a; }
+  .nav-links a.active { color: #1a1a1a; font-weight: 600; }
+  .main { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+  .page-header { padding: 48px 0 32px; border-bottom: 1px solid #e8e8e8; }
+  .page-header h1 { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+  .page-header p { font-size: 14px; color: #888; }
+  .summary-row { display: flex; gap: 32px; padding: 24px 0; border-bottom: 1px solid #e8e8e8; }
+  .summary-item { display: flex; flex-direction: column; gap: 4px; }
+  .summary-label { font-size: 12px; color: #aaa; }
+  .summary-value { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
+  .pos { color: #16a34a; }
+  .neg { color: #dc2626; }
+  .neutral { color: #1a1a1a; }
+  .section { padding: 32px 0; }
+  .section-label { font-size: 13px; font-weight: 600; color: #888; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 20px; }
+  .stock-table { width: 100%; border-collapse: collapse; }
+  .stock-table th { text-align: left; font-size: 12px; color: #aaa; font-weight: 500; padding: 0 0 12px; border-bottom: 1px solid #e8e8e8; }
+  .stock-table th:not(:first-child) { text-align: right; }
+  .stock-table td { padding: 16px 0; border-bottom: 1px solid #f5f5f5; font-size: 14px; vertical-align: middle; }
+  .stock-table td:not(:first-child) { text-align: right; }
+  .stock-table tr:last-child td { border-bottom: none; }
+  .sname { font-weight: 600; font-size: 14px; }
+  .scode { font-size: 12px; color: #bbb; margin-top: 2px; }
+  .buy-date { font-size: 12px; color: #bbb; }
+  .empty-state { padding: 56px 0; text-align: center; color: #ccc; }
+  .empty-state p { font-size: 14px; line-height: 1.8; }
+  .rule-box { margin-top: 32px; padding: 20px; background: #fafafa; border-radius: 8px; border: 1px solid #f0f0f0; }
+  .rule-box h3 { font-size: 13px; font-weight: 600; color: #555; margin-bottom: 10px; }
+  .rule-box ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .rule-box li { font-size: 13px; color: #888; padding-left: 14px; position: relative; }
+  .rule-box li::before { content: '—'; position: absolute; left: 0; color: #ccc; }
+  .footer { border-top: 1px solid #e8e8e8; padding: 32px 0; }
+  .footer-inner { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+  .footer p { font-size: 12px; color: #ccc; line-height: 1.7; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">버티는 투자</a>
+    <div class="nav-links">
+      <a href="portfolio.html" class="active">포트폴리오</a>
+      <a href="diary.html">투자일지</a>
+      <a href="about.html">소개</a>
+    </div>
+  </div>
+</nav>
+<div class="main">
+  <div class="page-header">
+    <h1>포트폴리오</h1>
+    <p>마법공식으로 선정한 종목 전체 기록. 분기 1회 5종목, 종목당 10만원.</p>
+  </div>
+  <div class="summary-row">
+    <div class="summary-item">
+      <span class="summary-label">총 투자금</span>
+      <span class="summary-value neutral">—</span>
+    </div>
+    <div class="summary-item">
+      <span class="summary-label">평가금액</span>
+      <span class="summary-value neutral">—</span>
+    </div>
+    <div class="summary-item">
+      <span class="summary-label">총 수익률</span>
+      <span class="summary-value neutral">—</span>
+    </div>
+    <div class="summary-item">
+      <span class="summary-label">보유 종목</span>
+      <span class="summary-value neutral">0종목</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">보유 종목</div>
+    <div class="empty-state">
+      <p>첫 분기 스크리닝 후 업데이트됩니다.<br>2026년 7월 첫 매수 예정.</p>
+    </div>
+    <div class="rule-box">
+      <h3>매수 원칙</h3>
+      <ul>
+        <li>마이스노우볼 시총 필터 → 부채비율·ROC 확인</li>
+        <li>네이버증시 PER 3~10 구간 확인</li>
+        <li>당기순이익 확인 (적자 제외)</li>
+        <li>분기 1회, 5종목, 종목당 10만원 매수</li>
+        <li>1년 보유 후 전량 매도 원칙</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-inner">
+    <p>본 기록은 개인 투자 일지이며 투자 권유가 아닙니다. 모든 투자 결정과 그 결과에 대한 책임은 본인에게 있습니다.</p>
+  </div>
+</div>
+</body>
+</html>
