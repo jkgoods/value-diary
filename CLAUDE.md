@@ -49,7 +49,15 @@
 모든 페이지 하단에 고정:
 "본 기록은 개인 투자 일지이며 투자 권유가 아닙니다. 모든 투자 결정과 그 결과에 대한 책임은 본인에게 있습니다."
 
+## 애드센스
+- newtechtree.com 도메인으로 애드센스 심사 완료 (value.newtechtree.com 포함)
+- 광고 스크립트 삽입 및 광고 슬롯 위치 지정 필요
+- 추천 광고 위치: 히어로 아래, 일지 목록 사이, 푸터 위
+
 ## 현재 작업 상태
 - Cloudflare Pages 배포 완료
 - value.newtechtree.com 도메인 연결 완료
-- index.html 생성 완료
+- 전체 페이지 뼈대 완성 (index, portfolio, diary, about, diary/001)
+- 애드센스 심사 완료 (newtechtree.com) — 스크립트 삽입 대기
+- 실제 매수 데이터 미입력 (첫 매수 후 업데이트 예정)
+- pykrx 현재가 자동 갱신 미구현
