@@ -341,10 +341,10 @@
       </div>
     </div>
     <div class="stats-grid">
-      <!-- STATS_CARD_START -->
-  <div class="stat-card" style="--accent:#3b82f6"><div class="stat-label">매수 시작일</div><div class="stat-value">2026.06.18</div><div class="stat-sub">최근 2026.06.18</div></div>
+<!-- STATS_CARD_START -->
+  <div class="stat-card" id="card-start" style="--accent:#3b82f6"><div class="stat-label">매수 시작일</div><div class="stat-value">2026.06.18</div><div class="stat-sub"></div></div>
   <div class="stat-card" style="--accent:#8b5cf6"><div class="stat-label">보유 종목</div><div class="stat-value">5종목</div></div>
-  <div class="stat-card" style="--accent:#06b6d4"><div class="stat-label">진행 회차</div><div class="stat-value">1회차</div></div>
+  <div class="stat-card" id="card-round" style="--accent:#06b6d4"><div class="stat-label">진행 회차</div><div class="stat-value">1회차</div><div class="stat-sub"></div></div>
   <div class="stat-card" style="--accent:#f59e0b"><div class="stat-label">총 투자금</div><div class="stat-value">543,960원</div></div>
   <div class="stat-card" style="--accent:#10b981"><div class="stat-label">평가금액</div><div class="stat-value">527,180원</div></div>
   <div class="stat-card" style="--accent:#1060c0"><div class="stat-label">전체 수익률</div><div class="stat-value" style="color:#1060c0">-3.1%</div></div>
@@ -416,6 +416,30 @@
       <p>본 기록은 개인 투자 일지이며 투자 권유가 아닙니다. 모든 투자 결정과 그 결과에 대한 책임은 본인에게 있습니다.</p>
     </div>
   </div>
+<script>
+(function () {
+  var startCard = document.getElementById('card-start');
+  var roundCard = document.getElementById('card-round');
+  if (!startCard) return;
+
+  var dateText = startCard.querySelector('.stat-value').textContent.trim();
+  var parts = dateText.split('.');
+  var start = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+
+  var dayN = Math.floor((today - start) / 86400000) + 1;
+  startCard.querySelector('.stat-value').innerHTML =
+    '<span style="color:#3b82f6;font-size:22px">' + dayN + '</span>' +
+    '<span style="font-size:12px;color:#aaa;font-weight:500;margin-left:3px">일째</span>';
+  startCard.querySelector('.stat-sub').textContent = dateText + ' 시작';
+
+  if (roundCard) {
+    var next = new Date(start.getFullYear(), start.getMonth() + 3, start.getDate());
+    var left = Math.ceil((next - today) / 86400000);
+    roundCard.querySelector('.stat-sub').textContent = '다음 매수까지 ' + left + '일';
+  }
+})();
+</script>
 </body>
 
 </html>

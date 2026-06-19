@@ -103,16 +103,15 @@ def _update_index(results, total_invested, total_eval, total_ret_str, total_ret_
 
     # Stats cards
     start_date = min(r["buy_date"] for r in results)
-    recent_date = max(r["buy_date"] for r in results)
     num_stocks = len(results)
     round_num = round_label.split("·")[1].strip() if "·" in round_label else round_label
     ret_accent = total_ret_color if all_valid else "#e2e8f0"
 
     stats_block = (
         "<!-- STATS_CARD_START -->\n"
-        f'  <div class="stat-card" style="--accent:#3b82f6"><div class="stat-label">매수 시작일</div><div class="stat-value">{start_date}</div><div class="stat-sub">최근 {recent_date}</div></div>\n'
+        f'  <div class="stat-card" id="card-start" style="--accent:#3b82f6"><div class="stat-label">매수 시작일</div><div class="stat-value">{start_date}</div><div class="stat-sub"></div></div>\n'
         f'  <div class="stat-card" style="--accent:#8b5cf6"><div class="stat-label">보유 종목</div><div class="stat-value">{num_stocks}종목</div></div>\n'
-        f'  <div class="stat-card" style="--accent:#06b6d4"><div class="stat-label">진행 회차</div><div class="stat-value">{round_num}</div></div>\n'
+        f'  <div class="stat-card" id="card-round" style="--accent:#06b6d4"><div class="stat-label">진행 회차</div><div class="stat-value">{round_num}</div><div class="stat-sub"></div></div>\n'
         f'  <div class="stat-card" style="--accent:#f59e0b"><div class="stat-label">총 투자금</div><div class="stat-value">{total_invested:,}원</div></div>\n'
         f'  <div class="stat-card" style="--accent:#10b981"><div class="stat-label">평가금액</div><div class="stat-value">{total_eval:,}원</div></div>\n'
         f'  <div class="stat-card" style="--accent:{ret_accent}"><div class="stat-label">전체 수익률</div><div class="stat-value" style="color:{total_ret_color}">{total_ret_str}</div></div>\n'
