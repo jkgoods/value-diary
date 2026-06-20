@@ -1,6 +1,6 @@
 // Immediately apply saved theme before DOM mounts to prevent flash
 (function () {
-  const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const savedTheme = localStorage.getItem('theme') || 'dark';
   document.documentElement.setAttribute('data-theme', savedTheme);
 })();
 
