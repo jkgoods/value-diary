@@ -7,342 +7,7 @@
   <meta name="naver-site-verification" content="985052494d3b295afcb434fd353e2706afce8f7b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>버티는 투자</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
-      background: #fff;
-      color: #1a1a1a;
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
-    nav {
-      border-bottom: 1px solid #e0e0e0;
-      padding: 18px 0;
-    }
-
-    .nav-inner {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-logo {
-      font-size: 17px;
-      font-weight: 700;
-      color: #1a1a1a;
-      letter-spacing: -0.3px;
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #888;
-      font-size: 13px;
-    }
-
-    .nav-links a:hover {
-      color: #1a1a1a;
-    }
-
-    .main {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .intro {
-      padding: 56px 0 40px;
-      border-bottom: 1px solid #e8e8e8;
-    }
-
-    .intro h1 {
-      font-size: 28px;
-      font-weight: 800;
-      letter-spacing: -0.8px;
-      line-height: 1.35;
-      margin-bottom: 14px;
-    }
-
-    .intro p {
-      color: #555;
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    .intro-meta {
-      margin-top: 20px;
-      font-size: 13px;
-      color: #aaa;
-    }
-
-    .intro-meta span {
-      margin-right: 16px;
-    }
-
-    .portfolio-strip {
-      padding: 28px 0;
-      border-bottom: 1px solid #e8e8e8;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
-
-    .section-label {
-      font-size: 13px;
-      font-weight: 600;
-      color: #888;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-
-    .section-more {
-      font-size: 12px;
-      color: #888;
-      text-decoration: none;
-    }
-
-    .section-more:hover {
-      color: #1a1a1a;
-    }
-
-    .stock-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .stock-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .stock-name-wrap {
-      min-width: 110px;
-    }
-
-    .sname {
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .scode {
-      font-size: 12px;
-      color: #bbb;
-    }
-
-    .stock-bar-wrap {
-      flex: 1;
-      margin: 0 16px;
-      height: 3px;
-      background: #f0f0f0;
-      border-radius: 2px;
-    }
-
-    .stock-bar {
-      height: 100%;
-      border-radius: 2px;
-    }
-
-    .bar-pos {
-      background: #16a34a;
-    }
-
-    .bar-neg {
-      background: #dc2626;
-    }
-
-    .stock-right {
-      font-size: 14px;
-      font-weight: 600;
-      min-width: 52px;
-      text-align: right;
-    }
-
-    .pos {
-      color: #16a34a;
-    }
-
-    .neg {
-      color: #dc2626;
-    }
-
-    .portfolio-summary {
-      margin-top: 18px;
-      padding-top: 14px;
-      border-top: 1px solid #f0f0f0;
-      font-size: 13px;
-      color: #aaa;
-    }
-
-    .diary-section {
-      padding: 32px 0;
-    }
-
-    .diary-list {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .diary-item {
-      padding: 28px 0;
-      border-bottom: 1px solid #f0f0f0;
-    }
-
-    .diary-item:last-child {
-      border-bottom: none;
-    }
-
-    .diary-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .diary-date {
-      font-size: 12px;
-      color: #bbb;
-    }
-
-    .diary-type {
-      font-size: 11px;
-      color: #888;
-      background: #f5f5f5;
-      padding: 2px 7px;
-      border-radius: 4px;
-    }
-
-    .diary-title {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      margin-bottom: 10px;
-      line-height: 1.4;
-    }
-
-    .diary-title a {
-      text-decoration: none;
-      color: #1a1a1a;
-    }
-
-    .diary-title a:hover {
-      text-decoration: underline;
-    }
-
-    .diary-body {
-      font-size: 14px;
-      color: #999;
-      line-height: 1.75;
-    }
-
-    .footer {
-      border-top: 1px solid #e8e8e8;
-      padding: 32px 0;
-    }
-
-    .footer-inner {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .footer p {
-      font-size: 12px;
-      color: #ccc;
-      line-height: 1.7;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      padding: 24px 0;
-      border-bottom: 1px solid #e8e8e8;
-    }
-
-    .stat-card {
-      background: #fafafa;
-      border-top: 3px solid var(--accent);
-      border-radius: 6px;
-      padding: 14px 14px 12px;
-    }
-
-    .stat-label {
-      font-size: 10px;
-      color: #bbb;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-      margin-bottom: 7px;
-    }
-
-    .stat-value {
-      font-size: 17px;
-      font-weight: 700;
-      color: #1a1a1a;
-      letter-spacing: -0.4px;
-    }
-
-    .stat-sub {
-      font-size: 11px;
-      color: #bbb;
-      margin-top: 5px;
-    }
-
-    @media (max-width: 480px) {
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .stat-value {
-        font-size: 15px;
-      }
-    }
-
-    .trend-chart-section {
-      padding: 24px 0 20px;
-      border-bottom: 1px solid #e8e8e8;
-    }
-
-    .trend-chart-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
-
-    .trend-chart-label {
-      font-size: 13px;
-      font-weight: 600;
-      color: #888;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-
-    .trend-chart-badge {
-      font-size: 12px;
-      color: #bbb;
-    }
-
-  </style>
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
@@ -373,28 +38,30 @@
   <div class="stat-card" id="card-round" style="--accent:#06b6d4"><div class="stat-label">진행 회차</div><div class="stat-value">1회차</div><div class="stat-sub"></div></div>
   <div class="stat-card" style="--accent:#f59e0b"><div class="stat-label">총 투자금</div><div class="stat-value">543,960원</div></div>
   <div class="stat-card" style="--accent:#10b981"><div class="stat-label">평가금액</div><div class="stat-value">527,180원</div></div>
-  <div class="stat-card" style="--accent:#1060c0"><div class="stat-label">전체 수익률</div><div class="stat-value" style="color:#1060c0">-3.1%</div></div>
+  <div class="stat-card" style="--accent:#2563eb"><div class="stat-label">전체 수익률</div><div class="stat-value" style="color:#2563eb">-3.1%</div></div>
   <!-- STATS_CARD_END -->
     </div>
 <!-- TREND_CHART_START -->
-  <div class="trend-chart-section" style="border-left:3px solid #1060c0;padding-left:16px">
+  <div class="trend-chart-section" style="border-left:3px solid #2563eb;padding-left:16px">
     <div class="trend-chart-header">
       <span class="trend-chart-label">수익률 추세</span>
       <span class="trend-chart-badge">D+3</span>
     </div>
     <svg width="100%" viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;display:block">
-  <rect x="62.5" y="22" width="517.5" height="78" fill="#f5f5f5"/>
-  <line x1="62.5" y1="22" x2="62.5" y2="100" stroke="#d8d8d8" stroke-width="1" stroke-dasharray="4,3"/>
+  <rect x="81.0" y="22" width="499.0" height="78" fill="#f5f5f5"/>
+  <line x1="81.0" y1="22" x2="81.0" y2="100" stroke="#d8d8d8" stroke-width="1" stroke-dasharray="4,3"/>
   <line x1="44" y1="68.9" x2="580" y2="68.9" stroke="#ececec" stroke-width="1" stroke-dasharray="3,4"/>
   <text x="38" y="72.9" text-anchor="end" font-size="10" fill="#ddd">-2%</text>
   <line x1="44" y1="33.9" x2="580" y2="33.9" stroke="#c8c8c8" stroke-width="1.5"/>
   <text x="38" y="37.9" text-anchor="end" font-size="10" fill="#bbb">0%</text>
-  <circle cx="62.5" cy="88.1" r="8" fill="white"/>
-  <circle cx="62.5" cy="88.1" r="5" fill="#1060c0"/>
-  <text x="76.5" y="83.1" text-anchor="start" font-size="15" fill="#1060c0" font-weight="700">-3.1%</text>
+  <polygon points="62.5,33.9 62.5,88.1 81.0,87.7 81.0,33.9" fill="#2563eb" fill-opacity="0.15"/>
+  <path d="M 62.5,88.1 L 81.0,87.7" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="81.0" cy="87.7" r="8" fill="white"/>
+  <circle cx="81.0" cy="87.7" r="5" fill="#2563eb"/>
+  <text x="95.0" y="82.7" text-anchor="start" font-size="15" fill="#2563eb" font-weight="700">-3.1%</text>
   <text x="44" y="130" text-anchor="start" font-size="10" fill="#ccc">D+1</text>
   <text x="580" y="130" text-anchor="end" font-size="10" fill="#ccc">D+30</text>
-  <text x="62.5" y="130" text-anchor="middle" font-size="10" fill="#1060c0">06.19</text>
+  <text x="81.0" y="130" text-anchor="middle" font-size="10" fill="#2563eb">06.20</text>
 </svg>
   </div>
   <!-- TREND_CHART_END -->
@@ -407,28 +74,28 @@
     <div class="stock-list">
       <div class="stock-item">
         <div class="stock-name-wrap"><div class="sname">동성케미컬</div><div class="scode">102260 · 2026.06.18 매수</div></div>
-        <div class="stock-bar-wrap"><div class="stock-bar" style="width:19%;background:#1060c0"></div></div>
-        <div class="stock-right" style="color:#1060c0">-3.9%</div>
+        <div class="stock-bar-wrap"><div class="stock-bar" style="width:19%;background:#2563eb"></div></div>
+        <div class="stock-right" style="color:#2563eb">-3.9%</div>
       </div>
       <div class="stock-item">
         <div class="stock-name-wrap"><div class="sname">세보엠이씨</div><div class="scode">011560 · 2026.06.18 매수</div></div>
-        <div class="stock-bar-wrap"><div class="stock-bar" style="width:23%;background:#1060c0"></div></div>
-        <div class="stock-right" style="color:#1060c0">-4.7%</div>
+        <div class="stock-bar-wrap"><div class="stock-bar" style="width:23%;background:#2563eb"></div></div>
+        <div class="stock-right" style="color:#2563eb">-4.7%</div>
       </div>
       <div class="stock-item">
         <div class="stock-name-wrap"><div class="sname">HRS</div><div class="scode">036640 · 2026.06.18 매수</div></div>
-        <div class="stock-bar-wrap"><div class="stock-bar" style="width:9%;background:#1060c0"></div></div>
-        <div class="stock-right" style="color:#1060c0">-2.0%</div>
+        <div class="stock-bar-wrap"><div class="stock-bar" style="width:9%;background:#2563eb"></div></div>
+        <div class="stock-right" style="color:#2563eb">-2.0%</div>
       </div>
       <div class="stock-item">
         <div class="stock-name-wrap"><div class="sname">트루엔</div><div class="scode">417790 · 2026.06.18 매수</div></div>
-        <div class="stock-bar-wrap"><div class="stock-bar" style="width:12%;background:#1060c0"></div></div>
-        <div class="stock-right" style="color:#1060c0">-2.5%</div>
+        <div class="stock-bar-wrap"><div class="stock-bar" style="width:12%;background:#2563eb"></div></div>
+        <div class="stock-right" style="color:#2563eb">-2.5%</div>
       </div>
       <div class="stock-item">
         <div class="stock-name-wrap"><div class="sname">현대이지웰</div><div class="scode">090850 · 2026.06.18 매수</div></div>
-        <div class="stock-bar-wrap"><div class="stock-bar" style="width:11%;background:#1060c0"></div></div>
-        <div class="stock-right" style="color:#1060c0">-2.3%</div>
+        <div class="stock-bar-wrap"><div class="stock-bar" style="width:11%;background:#2563eb"></div></div>
+        <div class="stock-right" style="color:#2563eb">-2.3%</div>
       </div>
     </div>
     <div class="portfolio-summary">총 투자금 543,960원 · 평가 527,180원 · -3.1% · 5종목 · 2026.06 · 1회차 &nbsp;<span style="font-size:11px;color:#ccc">2026.06.19 종가 기준</span></div>

@@ -45,19 +45,19 @@ def get_latest_price(ticker):
 
 def fmt_return(pct, valid=True):
     if not valid:
-        return "—", "#ccc"
+        return "—", "#8a8f98"
     if pct > 0:
-        return f"+{pct:.1f}%", "#d00000"
+        return f"+{pct:.1f}%", "#df2c2c"
     elif pct < 0:
-        return f"{pct:.1f}%", "#1060c0"
-    return "0.0%", "#aaa"
+        return f"{pct:.1f}%", "#2563eb"
+    return "0.0%", "#8a8f98"
 
 
 def bar_style(pct, valid=True):
     if not valid:
-        return "width:2%;background:#ddd"
+        return "width:2%;background:#e5e7eb"
     width = max(2, min(100, int(abs(pct) * 5)))
-    color = "#d00000" if pct > 0 else "#1060c0" if pct < 0 else "#ddd"
+    color = "#df2c2c" if pct > 0 else "#2563eb" if pct < 0 else "#e5e7eb"
     return f"width:{width}%;background:{color}"
 
 
@@ -136,9 +136,9 @@ def _build_index_trend_html(history_data):
 
     is_early = days_held <= WINDOW
     last_r = valid[-1]["return_pct"] if valid else None
-    color = "#d00000" if (last_r is not None and last_r > 0.05) else \
-            "#1060c0" if (last_r is not None and last_r < -0.05) else "#888"
-    border_color = color if valid else "#e0e0e0"
+    color = "#df2c2c" if (last_r is not None and last_r > 0.05) else \
+            "#2563eb" if (last_r is not None and last_r < -0.05) else "#8a8f98"
+    border_color = color if valid else "#e5e7eb"
 
     if not valid:
         return (
@@ -447,7 +447,7 @@ def _build_trend_html(history_data):
 
     last_x, last_y = pts[-1]
     last_r = returns[-1]
-    color = "#d00000" if last_r > 0.05 else "#1060c0" if last_r < -0.05 else "#888"
+    color = "#df2c2c" if last_r > 0.05 else "#2563eb" if last_r < -0.05 else "#8a8f98"
 
     fill_pts = (
         f"{pts[0][0]:.1f},{zero_y:.1f} "
