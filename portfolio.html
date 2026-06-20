@@ -43,6 +43,11 @@
   .rule-box ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
   .rule-box li { font-size: 13px; color: #888; padding-left: 14px; position: relative; }
   .rule-box li::before { content: '—'; position: absolute; left: 0; color: #ccc; }
+  .trend-note { font-size: 12px; color: #aaa; margin-top: 10px; }
+  .round-group { margin-bottom: 28px; }
+  .round-group:last-child { margin-bottom: 0; }
+  .round-group-label { font-size: 13px; font-weight: 600; color: #555; margin-bottom: 14px; }
+  .round-sell-date { font-size: 11px; color: #bbb; font-weight: 400; margin-left: 8px; }
   .footer { border-top: 1px solid #e8e8e8; padding: 32px 0; }
   .footer-inner { max-width: 680px; margin: 0 auto; padding: 0 24px; }
   .footer p { font-size: 12px; color: #ccc; line-height: 1.7; }
@@ -69,65 +74,49 @@
     총 투자 <span class="highlight">543,960원</span> &nbsp;·&nbsp; 평가금액 <span class="highlight">527,180원</span> &nbsp;·&nbsp; 수익률 <span style="color:#1060c0;font-weight:600">-3.1%</span> &nbsp;·&nbsp; 보유 <span class="highlight">5종목</span> &nbsp;·&nbsp; <span style="font-size:11px;color:#ccc">2026.06.19 종가 기준</span>
   </div>
   <!-- SUMMARY_END -->
+<!-- HOLDINGS_START -->
   <div class="section">
-    <div class="section-label">보유 종목 — 2026.06 · 1회차</div>
-    <table class="stock-table">
-      <thead>
-        <tr>
-          <th>종목</th>
-          <th>매수일</th>
-          <th>매수가</th>
-          <th>주수</th>
-          <th>매수금액</th>
-          <th>수익률</th>
-        </tr>
-      </thead>
-<!-- TBODY_START -->
-      <tbody>
-        <tr>
-          <td><div class="sname">동성케미컬</div><div class="scode">102260</div></td>
-          <td><span class="buy-date">2026.06.18</span></td>
-          <td>3,855원</td>
-          <td>28주</td>
-          <td>107,940원</td>
-          <td style="color:#1060c0">-3.9%</td>
-        </tr>
-        <tr>
-          <td><div class="sname">세보엠이씨</div><div class="scode">011560</div></td>
-          <td><span class="buy-date">2026.06.18</span></td>
-          <td>22,200원</td>
-          <td>5주</td>
-          <td>111,000원</td>
-          <td style="color:#1060c0">-4.7%</td>
-        </tr>
-        <tr>
-          <td><div class="sname">HRS</div><div class="scode">036640</div></td>
-          <td><span class="buy-date">2026.06.18</span></td>
-          <td>4,830원</td>
-          <td>22주</td>
-          <td>106,260원</td>
-          <td style="color:#1060c0">-2.0%</td>
-        </tr>
-        <tr>
-          <td><div class="sname">트루엔</div><div class="scode">417790</div></td>
-          <td><span class="buy-date">2026.06.18</span></td>
-          <td>6,420원</td>
-          <td>17주</td>
-          <td>109,140원</td>
-          <td style="color:#1060c0">-2.5%</td>
-        </tr>
-        <tr>
-          <td><div class="sname">현대이지웰</div><div class="scode">090850</div></td>
-          <td><span class="buy-date">2026.06.18</span></td>
-          <td>5,220원</td>
-          <td>21주</td>
-          <td>109,620원</td>
-          <td style="color:#1060c0">-2.3%</td>
-        </tr>
-      </tbody>
-      <!-- TBODY_END -->
-    </table>
+    <div class="section-label">보유 종목</div>
+      <div class="round-group">
+        <div class="round-group-label">2026.06 · 1회차 <span class="round-sell-date">→ 2027.06.18 매도 예정</span></div>
+        <table class="stock-table">
+        <thead><tr><th>종목</th><th>매수일</th><th>매수가</th><th>주수</th><th>매수금액</th><th>수익률</th></tr></thead>
+          <tbody>
+          <tr>
+            <td><div class="sname">동성케미컬</div><div class="scode">102260</div></td>
+            <td><span class="buy-date">2026.06.18</span></td>
+            <td>3,855원</td><td>28주</td><td>107,940원</td>
+            <td style="color:#1060c0">-3.9%</td>
+          </tr>
+          <tr>
+            <td><div class="sname">세보엠이씨</div><div class="scode">011560</div></td>
+            <td><span class="buy-date">2026.06.18</span></td>
+            <td>22,200원</td><td>5주</td><td>111,000원</td>
+            <td style="color:#1060c0">-4.7%</td>
+          </tr>
+          <tr>
+            <td><div class="sname">HRS</div><div class="scode">036640</div></td>
+            <td><span class="buy-date">2026.06.18</span></td>
+            <td>4,830원</td><td>22주</td><td>106,260원</td>
+            <td style="color:#1060c0">-2.0%</td>
+          </tr>
+          <tr>
+            <td><div class="sname">트루엔</div><div class="scode">417790</div></td>
+            <td><span class="buy-date">2026.06.18</span></td>
+            <td>6,420원</td><td>17주</td><td>109,140원</td>
+            <td style="color:#1060c0">-2.5%</td>
+          </tr>
+          <tr>
+            <td><div class="sname">현대이지웰</div><div class="scode">090850</div></td>
+            <td><span class="buy-date">2026.06.18</span></td>
+            <td>5,220원</td><td>21주</td><td>109,620원</td>
+            <td style="color:#1060c0">-2.3%</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
   </div>
+  <!-- HOLDINGS_END -->
   <div class="section">
     <div class="rule-box">
       <h3>매수 원칙</h3>
