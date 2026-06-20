@@ -12,8 +12,23 @@
   --accent-green-light: #ecfdf5;
   --card-shadow: 0 4px 20px -2px rgba(21, 76, 48, 0.03), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
   --card-hover-shadow: 0 12px 30px -4px rgba(21, 76, 48, 0.06), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
-  --positive-color: #e11d48; /* Modern soft coral red */
+  --positive-color: #df2c2c; /* Modern soft coral red */
   --negative-color: #2563eb; /* Modern soft navy/indigo */
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0a0c10; /* Deep onyx dark slate */
+  --bg-secondary: #12161f; /* Premium dark card background */
+  --text-primary: #f8fafc; /* Crisp light slate white */
+  --text-secondary: #94a3b8; /* Muted steel gray */
+  --text-tertiary: #64748b; /* Slate gray */
+  --border-color: #1e293b; /* Slate dark border */
+  --accent-green: #34d399; /* Bright vibrant mint green */
+  --accent-green-light: rgba(52, 211, 153, 0.08);
+  --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --card-hover-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+  --positive-color: #f43f5e; /* Rose pink-red */
+  --negative-color: #3b82f6; /* Vivid royal blue */
 }
 
 * {
@@ -861,3 +876,104 @@ nav {
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
+/* Dark Mode Layout Tweaks & Interactive Elements */
+[data-theme="dark"] nav {
+  background: rgba(10, 12, 16, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .nav-links a:hover {
+  background: rgba(52, 211, 153, 0.08);
+}
+
+[data-theme="dark"] .nav-links a.active {
+  background: rgba(52, 211, 153, 0.12);
+}
+
+[data-theme="dark"] .disclaimer-box {
+  background: rgba(244, 63, 94, 0.04);
+  border: 1px solid rgba(244, 63, 94, 0.1);
+}
+
+[data-theme="dark"] .disclaimer-box p {
+  color: #fda4af;
+}
+
+[data-theme="dark"] .stock-table tr:hover td,
+[data-theme="dark"] .result-table tr:hover td {
+  background: rgba(52, 211, 153, 0.02);
+}
+
+/* Theme Toggle Button Style */
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+  user-select: none;
+  border: 1px solid var(--border-color);
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(128, 128, 128, 0.08);
+  transform: scale(1.05);
+}
+
+[data-theme="dark"] .theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* SVG Chart Theme Support */
+svg text {
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif !important;
+}
+
+[data-theme="dark"] svg rect {
+  fill: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] svg line[stroke="#d8d8d8"],
+[data-theme="dark"] svg line[stroke="#ececec"],
+[data-theme="dark"] svg line[stroke="#e8e8e8"] {
+  stroke: var(--border-color) !important;
+}
+
+[data-theme="dark"] svg line[stroke="#c8c8c8"] {
+  stroke: var(--text-tertiary) !important;
+  opacity: 0.4;
+}
+
+[data-theme="dark"] svg text[fill="#bbb"],
+[data-theme="dark"] svg text[fill="#ddd"],
+[data-theme="dark"] svg text[fill="#ccc"] {
+  fill: var(--text-tertiary) !important;
+}
+
+[data-theme="dark"] svg circle[fill="white"] {
+  fill: var(--bg-secondary) !important;
+}
+
+/* Dark Mode Scrollbars */
+[data-theme="dark"] ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
