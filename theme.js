@@ -1,6 +1,11 @@
 // Immediately apply saved theme before DOM mounts to prevent flash
 (function () {
-  const savedTheme = localStorage.getItem('theme') || 'dark';
+  let savedTheme = 'dark';
+  try {
+    savedTheme = localStorage.getItem('theme') || 'dark';
+  } catch (e) {
+    console.warn('localStorage read blocked, defaulting to dark:', e);
+  }
   document.documentElement.setAttribute('data-theme', savedTheme);
 })();
 
@@ -59,7 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
     
     document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+    try {
+      localStorage.setItem('theme', newTheme);
+    } catch (e) {
+      console.warn('localStorage write blocked:', e);
+    }
     toggleBtn.innerHTML = newTheme === 'dark' ? '☀️' : '🌙';
   });
 
