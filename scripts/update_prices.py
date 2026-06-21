@@ -100,18 +100,19 @@ def main():
     )
     print(f"\n총 평가: {total_eval:,}원  {total_ret_str}  ({price_date} 종가 기준)")
 
-    # 히스토리 업데이트
+    # 히스토리 업데이트 — 실제 거래일(price_date) 기준으로 중복 방지
     history_data = json.loads(HISTORY_FILE.read_text(encoding="utf-8")) if HISTORY_FILE.exists() else {"history": []}
-    today_str = datetime.now(KST).date().strftime("%Y.%m.%d")
     existing = {h["date"] for h in history_data["history"]}
-    if today_str not in existing:
+    if price_date and price_date not in existing:
         history_data["history"].append({
-            "date": today_str,
+            "date": price_date,
             "day": len(history_data["history"]) + 1,
             "return_pct": round(total_pct, 2) if all_valid else None,
         })
         HISTORY_FILE.write_text(json.dumps(history_data, ensure_ascii=False, indent=2), encoding="utf-8")
-        print(f"  히스토리 추가: {today_str} {total_pct:+.2f}%")
+        print(f"  히스토리 추가: {price_date} {total_pct:+.2f}%")
+    elif price_date:
+        print(f"  히스토리 스킵: {price_date} 이미 존재 (주말·공휴일 이후 재실행)")
 
     _update_index(results, total_invested, total_eval, total_ret_str, total_ret_color, round_label, price_date, all_valid, history_data)
     _update_portfolio(results, total_invested, total_eval, total_ret_str, total_ret_color, round_label, price_date, history_data)
