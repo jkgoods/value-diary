@@ -912,6 +912,59 @@ nav {
 }
 
 /* ============================================================
+   SECTOR TABLE (about page)
+============================================================ */
+.sector-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin-top: 12px;
+}
+
+.sector-table th {
+  text-align: left;
+  padding: 8px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border);
+}
+
+.sector-table td {
+  padding: 10px 10px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-light, var(--border));
+  vertical-align: top;
+}
+
+.sector-table td:first-child {
+  font-weight: 600;
+  white-space: nowrap;
+  width: 48px;
+}
+
+.sector-table td:nth-child(2) {
+  white-space: nowrap;
+  width: 180px;
+}
+
+.exclude-row td:first-child {
+  color: #dc2626;
+}
+
+.sector-note {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+[data-theme="dark"] .exclude-row td:first-child {
+  color: #f87171;
+}
+
+/* ============================================================
    ABOUT PAGE SECTIONS
 ============================================================ */
 .section {
