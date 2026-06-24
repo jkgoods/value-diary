@@ -104,9 +104,14 @@ def main():
     history_data = json.loads(HISTORY_FILE.read_text(encoding="utf-8")) if HISTORY_FILE.exists() else {"history": []}
     existing = {h["date"] for h in history_data["history"]}
     if price_date and price_date not in existing:
+        if history_data["history"]:
+            start_str = history_data["history"][0]["date"].replace(".", "-")
+            cal_day = (date.fromisoformat(price_date.replace(".", "-")) - date.fromisoformat(start_str)).days + 1
+        else:
+            cal_day = 1
         history_data["history"].append({
             "date": price_date,
-            "day": len(history_data["history"]) + 1,
+            "day": cal_day,
             "return_pct": round(total_pct, 2) if all_valid else None,
         })
         HISTORY_FILE.write_text(json.dumps(history_data, ensure_ascii=False, indent=2), encoding="utf-8")

@@ -11,8 +11,18 @@
       "return_pct": -3.1
     },
     {
+      "date": "2026.06.22",
+      "day": 5,
+      "return_pct": -3.1
+    },
+    {
+      "date": "2026.06.23",
+      "day": 6,
+      "return_pct": -6.6
+    },
+    {
       "date": "2026.06.24",
-      "day": 3,
+      "day": 7,
       "return_pct": -4.0
     }
   ]
