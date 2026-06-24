@@ -377,7 +377,7 @@ def _update_index(results, total_invested, total_eval, total_ret_str, total_ret_
     date_note = f' &nbsp;<span style="font-size:11px;color:#ccc">{price_date} 종가 기준</span>' if price_date else ""
     summary = (
         f'총 투자금 {total_invested:,}원 · 평가 {total_eval:,}원 · '
-        f'{total_ret_str} · 5종목 · {round_label}{date_note}'
+        f'{total_ret_str} · {num_stocks}종목 · {round_label}{date_note}'
     )
 
     new_block = (

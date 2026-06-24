@@ -1,14 +1,16 @@
 {
   "stocks": [
-    {"round": 1, "round_label": "2026.06 · 1회차", "sell_date": "2027.06.18",
+    {"round": 1, "round_label": "2026.06.18 · 1회차", "sell_date": "2027.06.18",
      "ticker": "102260", "name": "동성케미컬",  "buy_date": "2026.06.18", "buy_price": 3855,  "shares": 28, "buy_amount": 107940},
-    {"round": 1, "round_label": "2026.06 · 1회차", "sell_date": "2027.06.18",
+    {"round": 1, "round_label": "2026.06.18 · 1회차", "sell_date": "2027.06.18",
      "ticker": "011560", "name": "세보엠이씨",  "buy_date": "2026.06.18", "buy_price": 22200, "shares": 5,  "buy_amount": 111000},
-    {"round": 1, "round_label": "2026.06 · 1회차", "sell_date": "2027.06.18",
+    {"round": 1, "round_label": "2026.06.18 · 1회차", "sell_date": "2027.06.18",
      "ticker": "036640", "name": "HRS",         "buy_date": "2026.06.18", "buy_price": 4830,  "shares": 22, "buy_amount": 106260},
-    {"round": 1, "round_label": "2026.06 · 1회차", "sell_date": "2027.06.18",
+    {"round": 1, "round_label": "2026.06.18 · 1회차", "sell_date": "2027.06.18",
      "ticker": "417790", "name": "트루엔",       "buy_date": "2026.06.18", "buy_price": 6420,  "shares": 17, "buy_amount": 109140},
-    {"round": 1, "round_label": "2026.06 · 1회차", "sell_date": "2027.06.18",
-     "ticker": "090850", "name": "현대이지웰",   "buy_date": "2026.06.18", "buy_price": 5220,  "shares": 21, "buy_amount": 109620}
+    {"round": 1, "round_label": "2026.06.18 · 1회차", "sell_date": "2027.06.18",
+     "ticker": "090850", "name": "현대이지웰",   "buy_date": "2026.06.18", "buy_price": 5220,  "shares": 21, "buy_amount": 109620},
+    {"round": 2, "round_label": "2026.06.24 · 추가", "sell_date": "2027.06.23",
+     "ticker": "058630", "name": "엠게임",       "buy_date": "2026.06.24", "buy_price": 3895,  "shares": 26, "buy_amount": 101270}
   ]
 }
