@@ -1,9 +1,7 @@
 name: 현재가 자동 갱신
 
 on:
-  schedule:
-    - cron: '05 7 * * 1-5'  # 평일 16:05 KST (07:05 UTC) — 장 마감 35분 후
-  workflow_dispatch:  # 수동 실행 버튼
+  workflow_dispatch:  # 수동 실행 버튼 — 자동 스케줄은 맥미니 로컬 cron이 담당 (GitHub Actions 스케줄 실행 지연 문제로 전환)
 
 permissions:
   contents: write

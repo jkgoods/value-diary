@@ -2,3 +2,4 @@ temp_img/
 __pycache__/
 *.pyc
 .vscode/
+cron.log
