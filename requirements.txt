@@ -1,0 +1,3 @@
+pykrx==1.0.51
+# pykrx가 pkg_resources를 사용 (Python 3.12 venv엔 setuptools 기본 미포함)
+setuptools<81
